@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&display=swap");
 
 /* Global */
 * {
@@ -10,4 +10,63 @@
 
 html {
   font-size: 62.5%;
+}
+
+/* body */
+
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+  background-image: url(https://images.pexels.com/photos/561463/pexels-photo-561463.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  font-size: 1.3rem;
+}
+
+.main-container {
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 50vh;
+  border-radius: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.title-container {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+  font-size: 1.6rem;
+}
+
+.question-container {
+  padding: 0.5rem;
+}
+
+.question {
+  position: relative;
+  border-bottom: 1px solid black;
+  margin-bottom: 0.25rem;
+  position: relative;
+}
+
+.question p {
+  display: inline;
+}
+
+.question .expand-icon {
+  position: absolute;
+  right: 0;
+}
+
+.question .answer {
+  margin-top: 0.25rem;
+}
+
+.hidden {
+  height: 0px;
+  overflow: hidden;
+  transition: 0.5s;
 }
