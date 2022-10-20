@@ -1,20 +1,22 @@
 "use strict";
 
-const expandReduceIcon = document.querySelectorAll(".expand-icon");
+const mainContainer = document.querySelector(".main-container");
 
 function expandReduce(e) {
   const target = e.target;
-  const containerParent = target.closest(".question-container");
-  const answerToExpand = containerParent.querySelector(".answer");
-  const icon = containerParent.querySelector(".expand-icon");
 
-  if (answerToExpand.classList.contains("hidden")) {
-    answerToExpand.classList.remove("hidden");
-    icon.innerText = "-";
-  } else {
-    answerToExpand.classList.add("hidden");
-    icon.innerText = "+";
+  if (target.classList.contains("expand-icon")) {
+    const containerParent = target.closest(".question-container");
+    const answerToExpand = containerParent.querySelector(".answer");
+    const icon = containerParent.querySelector(".expand-icon");
+    if (answerToExpand.classList.contains("hidden")) {
+      answerToExpand.classList.remove("hidden");
+      icon.innerText = "-";
+    } else {
+      answerToExpand.classList.add("hidden");
+      icon.innerText = "+";
+    }
   }
 }
 
-expandReduceIcon.forEach((ele) => ele.addEventListener("click", expandReduce));
+mainContainer.addEventListener("click", expandReduce);
