@@ -17,7 +17,7 @@
       </div>
       <div class="question-container" id="question-1">
         <div class="question">
-          <p>Question #</p>
+          <p class="question-text">Question #</p>
           <p class="expand-icon">+</p>
         </div>
         <div class="answer hidden">
@@ -31,7 +31,7 @@
       </div>
       <div class="question-container" id="question-2">
         <div class="question">
-          <p>Question #</p>
+          <p class="question-text">Question #</p>
           <p class="expand-icon">+</p>
         </div>
         <div class="answer hidden">
@@ -45,7 +45,27 @@
       </div>
       <div class="question-container" id="question-3">
         <div class="question">
-          <p>Question #</p>
+          <form class="API-info">
+            <label for="category">
+              <span>Category</span>
+              <select id="category">
+                <option>trivia</option>
+                <option>math</option>
+                <option>date</option>
+                <option>year</option>
+              </select>
+            </label>
+            <label for="min">
+              <span>Min</span>
+              <input id="min" />
+            </label>
+            <label for="max">
+              <span>Max</span>
+              <input id="max" />
+            </label>
+            <button class="form-btn">Resquest information!</button>
+          </form>
+          <p class="question-text">Question #</p>
           <p class="expand-icon">+</p>
         </div>
         <div class="answer hidden">

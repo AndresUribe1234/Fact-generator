@@ -56,18 +56,40 @@ body {
   display: inline;
 }
 
+.question .question-text {
+  transition: 0.5s;
+}
+
 .question .expand-icon {
   position: absolute;
   right: 0;
   cursor: pointer;
 }
 
-.question .answer {
-  margin-top: 0.25rem;
+.answer {
+  margin-top: 0.5rem;
+  height: 100px;
+  transition: 0.5s;
 }
 
 .hidden {
   height: 0px;
   overflow: hidden;
-  transition: 0.5s;
+}
+
+.API-info input {
+  width: 3rem;
+  border: solid transparent;
+  opacity: 0.3;
+  border-radius: 0.5rem;
+}
+.API-info select {
+  width: 6rem;
+  border: solid transparent;
+  opacity: 0.3;
+  border-radius: 0.5rem;
+}
+
+.form-btn {
+  display: none;
 }
