@@ -18,32 +18,43 @@ const options = {
 // Create route
 router.get("/", async (req, res) => {
   try {
+    // Getting from endpoint necessary information to build url for API Request
     const queryParmsRaw = {
       ...url.parse(req.url, true).query,
     };
     const category = queryParmsRaw.category;
-    console.log("req.url", req.url);
-    console.log("query Raw", queryParmsRaw);
     delete queryParmsRaw.category;
-    const queryParmsReady = new URLSearchParams({
+    let queryParmsReady = new URLSearchParams({
       ...queryParmsRaw,
     });
+    // Use date endpoint of number API which is different from other categories
+    if (category === "date") {
+      const month = queryParmsRaw.min;
+      const day = queryParmsRaw.max;
+      delete queryParmsRaw.min;
+      delete queryParmsRaw.max;
+      queryParmsReady = new URLSearchParams({
+        ...queryParmsRaw,
+      });
+      const apiRes = await needle(
+        "get",
+        `https://numbersapi.p.rapidapi.com/${month}/${day}/${category}?${queryParmsReady}`,
+        options
+      );
+      const data = apiRes.body;
 
-    console.log("query Ready", queryParmsReady);
+      res.status(200).json(data);
+    } else {
+      // Use different endpoint
+      const apiRes = await needle(
+        "get",
+        `${API_BASE_URL}/${category}?${queryParmsReady}`,
+        options
+      );
+      const data = apiRes.body;
 
-    console.log(
-      "get request",
-      `${API_BASE_URL}/${category}?${queryParmsReady}`
-    );
-
-    const apiRes = await needle(
-      "get",
-      `${API_BASE_URL}/${category}?${queryParmsReady}`,
-      options
-    );
-    const data = apiRes.body;
-
-    res.status(200).json(data);
+      res.status(200).json(data);
+    }
   } catch (error) {
     res.status(500).json({ error });
   }

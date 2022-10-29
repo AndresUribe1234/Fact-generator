@@ -90,8 +90,14 @@ function apiResponse(e) {
   const min = selectorContainer.querySelector("#API-parameter-min").value;
   let max;
   let url;
+  const textApiRes = selectorContainer.querySelector(".answer p");
+  const factApiParams = selectorContainer.querySelector(".answer span");
+
+  if (min === "") return;
+
   if (selectorContainer.querySelector("select").value === "date") {
     max = selectorContainer.querySelector("#API-parameter-max").value;
+    if (max === "") return;
   }
 
   if (
@@ -102,22 +108,45 @@ function apiResponse(e) {
     fetch(url)
       .then((res) => res.json())
       .then((json) => {
-        selectorContainer.querySelector(".answer p").innerText = json.text;
-        console.log(json.text);
-        console.log("data cl", json);
+        let text = json.text;
+        text = text[0].toUpperCase() + text.slice(1);
+        if (category === "math" || category === "trivia") {
+          factApiParams.innerText = `${category[0].toUpperCase()}${category.slice(
+            1
+          )} fact with number: ${min}`;
+        } else {
+          factApiParams.innerText = `${category[0].toUpperCase()}${category.slice(
+            1
+          )} fact: ${min}`;
+        }
+        if (json.found === true) {
+          textApiRes.innerText = `Fact: ${text}.`;
+        } else {
+          textApiRes.innerText = `Fact: There's no fact related to the search parameters requested.`;
+        }
       });
   } else if (
     (category === "date") &
-    (isFinite(min) & (min % 1 === 0) || min === "") &
-    (isFinite(max) & (max % 1 === 0) || max === "")
+    (isFinite(min) & ((min >= 0) & (min <= 12)) & (min % 1 === 0) ||
+      min === "") &
+    (isFinite(max) & ((max >= 0) & (max <= 31)) & (max % 1 === 0) || max === "")
   ) {
     url = `/api?min=${min}&max=${max}&fragment=true&json=true&category=${category}`;
     fetch(url)
       .then((res) => res.json())
       .then((json) => {
-        selectorContainer.querySelector(".answer p").innerText = json.text;
-        console.log(json);
-        console.log("data cl", json);
+        let text = json.text;
+        text = text[0].toUpperCase() + text.slice(1);
+        // prettier-ignore
+        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        factApiParams.innerText = `${category[0].toUpperCase()}${category.slice(
+          1
+        )} fact: ${months[min - 1]} ${max} of ${json.year}`;
+        if (json.found === true) {
+          textApiRes.innerText = `Fact: ${text}.`;
+        } else {
+          textApiRes.innerText = `Fact: There's no fact related to the search parameters requested.`;
+        }
       });
   }
 }
