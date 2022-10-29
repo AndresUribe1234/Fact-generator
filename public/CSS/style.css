@@ -17,7 +17,8 @@ html {
 body {
   min-height: 100vh;
   min-width: 100vw;
-  background-image: url(https://images.pexels.com/photos/561463/pexels-photo-561463.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  /* background-image: url(https://images.pexels.com/photos/1926988/pexels-photo-1926988.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1); */
+  background-image: url("../pics/small_size.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -25,7 +26,7 @@ body {
 }
 
 .main-container {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.9);
   width: 50vh;
   border-radius: 1rem;
   position: absolute;
@@ -45,22 +46,20 @@ body {
   padding: 0.5rem;
 }
 
-.question {
+.API-info-container {
+  display: flex;
+  align-items: center;
   position: relative;
   border-bottom: 1px solid black;
-  margin-bottom: 0.25rem;
   position: relative;
+  padding: 0.5rem;
 }
 
-.question p {
-  display: inline;
-}
-
-.question .question-text {
+.API-info-container .fact-selection-text {
   transition: 0.5s;
 }
 
-.question .expand-icon {
+.API-info-container .expand-icon {
   position: absolute;
   right: 0;
   cursor: pointer;
@@ -77,16 +76,28 @@ body {
   overflow: hidden;
 }
 
+.Api-info {
+  display: inline-block;
+}
+
+.inputs-to-insert {
+  display: inline;
+}
+
 .API-info input {
   width: 3rem;
   border: solid transparent;
-  opacity: 0.3;
+  opacity: 0.6;
+  background-color: grey;
+  color: white;
   border-radius: 0.5rem;
 }
 .API-info select {
   width: 6rem;
   border: solid transparent;
-  opacity: 0.3;
+  opacity: 0.6;
+  background-color: grey;
+  color: white;
   border-radius: 0.5rem;
 }
 

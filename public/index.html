@@ -13,67 +13,86 @@
   <body>
     <div class="main-container">
       <div class="title-container">
-        <p>Whats the correct answer?</p>
+        <p>Facts</p>
       </div>
       <div class="question-container" id="question-1">
-        <div class="question">
-          <p class="question-text">Question #</p>
-          <p class="expand-icon">+</p>
-        </div>
-        <div class="answer hidden">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-            quibusdam exercitationem laboriosam eaque incidunt soluta
-            perferendis vero voluptatibus deserunt, praesentium consequuntur
-            pariatur. Totam quis sit ipsa sed modi ad accusamus!
-          </p>
-        </div>
-      </div>
-      <div class="question-container" id="question-2">
-        <div class="question">
-          <p class="question-text">Question #</p>
-          <p class="expand-icon">+</p>
-        </div>
-        <div class="answer hidden">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-            quibusdam exercitationem laboriosam eaque incidunt soluta
-            perferendis vero voluptatibus deserunt, praesentium consequuntur
-            pariatur. Totam quis sit ipsa sed modi ad accusamus!
-          </p>
-        </div>
-      </div>
-      <div class="question-container" id="question-3">
-        <div class="question">
-          <form class="API-info">
+        <div class="API-info-container">
+          <form class="API-info fact-selection-text">
             <label for="category">
-              <span>Category</span>
-              <select id="category">
+              <span>Select a category</span>
+              <select id="category" class="category">
+                <option></option>
                 <option>trivia</option>
                 <option>math</option>
                 <option>date</option>
                 <option>year</option>
               </select>
             </label>
-            <label for="min">
-              <span>Min</span>
-              <input id="min" />
-            </label>
-            <label for="max">
-              <span>Max</span>
-              <input id="max" />
-            </label>
+            <div class="inputs-to-insert"></div>
             <button class="form-btn">Resquest information!</button>
           </form>
-          <p class="question-text">Question #</p>
           <p class="expand-icon">+</p>
         </div>
         <div class="answer hidden">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-            quibusdam exercitationem laboriosam eaque incidunt soluta
-            perferendis vero voluptatibus deserunt, praesentium consequuntur
-            pariatur. Totam quis sit ipsa sed modi ad accusamus!
+            You haven't asked for a fact yet! Please enter the information
+            requested above in order to learn something new! The category is
+            obligatory but the other parameters are optional. If left blank a
+            random fact will be generated!
+          </p>
+        </div>
+      </div>
+      <div class="question-container" id="question-2">
+        <div class="API-info-container">
+          <form class="API-info fact-selection-text">
+            <label for="category">
+              <span>Select a category</span>
+              <select id="category" class="category">
+                <option></option>
+                <option>trivia</option>
+                <option>math</option>
+                <option>date</option>
+                <option>year</option>
+              </select>
+            </label>
+            <div class="inputs-to-insert"></div>
+            <button class="form-btn">Resquest information!</button>
+          </form>
+          <p class="expand-icon">+</p>
+        </div>
+        <div class="answer hidden">
+          <p>
+            You haven't asked for a fact yet! Please enter the information
+            requested above in order to learn something new! The category is
+            obligatory but the other parameters are optional. If left blank a
+            random fact will be generated!
+          </p>
+        </div>
+      </div>
+      <div class="question-container" id="question-3">
+        <div class="API-info-container">
+          <form class="API-info fact-selection-text">
+            <label for="category">
+              <span>Select a category</span>
+              <select id="category" class="category">
+                <option></option>
+                <option>trivia</option>
+                <option>math</option>
+                <option>date</option>
+                <option>year</option>
+              </select>
+            </label>
+            <div class="inputs-to-insert"></div>
+            <button class="form-btn">Resquest information!</button>
+          </form>
+          <p class="expand-icon">+</p>
+        </div>
+        <div class="answer hidden">
+          <p>
+            You haven't asked for a fact yet! Please enter the information
+            requested above in order to learn something new! The category is
+            obligatory but the other parameters are optional. If left blank a
+            random fact will be generated!
           </p>
         </div>
       </div>
