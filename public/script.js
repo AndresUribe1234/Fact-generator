@@ -12,16 +12,15 @@ function expandReduce(e) {
     const containerParent = target.closest(".question-container");
     const answerToExpand = containerParent.querySelector(".answer");
     const icon = containerParent.querySelector(".expand-icon");
+    const formInfo = containerParent.querySelector(".fact-selection-text");
     if (answerToExpand.classList.contains("hidden")) {
       answerToExpand.classList.remove("hidden");
       icon.innerText = "-";
-      containerParent.querySelector(".fact-selection-text").style.fontSize =
-        "1rem";
+      formInfo.style.fontSize = "1rem";
     } else {
       answerToExpand.classList.add("hidden");
       icon.innerText = "+";
-      containerParent.querySelector(".fact-selection-text").style.fontSize =
-        "1.3rem";
+      formInfo.style.fontSize = "1.3rem";
     }
   }
 }
@@ -92,6 +91,7 @@ function apiResponse(e) {
   let url;
   const textApiRes = selectorContainer.querySelector(".answer p");
   const factApiParams = selectorContainer.querySelector(".answer span");
+  const formBtn = selectorContainer.querySelector(".form-btn");
 
   if (min === "") return;
 
@@ -124,6 +124,7 @@ function apiResponse(e) {
         } else {
           textApiRes.innerText = `Fact: There's no fact related to the search parameters requested.`;
         }
+        formBtn.classList.remove("hidden-btn");
       });
   } else if (
     (category === "date") &
@@ -147,6 +148,7 @@ function apiResponse(e) {
         } else {
           textApiRes.innerText = `Fact: There's no fact related to the search parameters requested.`;
         }
+        formBtn.classList.remove("hidden-btn");
       });
   }
 }

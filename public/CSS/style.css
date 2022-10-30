@@ -71,12 +71,7 @@ body {
   transition: 0.5s;
 }
 
-.hidden {
-  height: 0px;
-  overflow: hidden;
-}
-
-.Api-info {
+.API-info {
   display: inline-block;
 }
 
@@ -102,5 +97,20 @@ body {
 }
 
 .form-btn {
+  cursor: pointer;
+  border: solid transparent;
+  opacity: 0.6;
+  background-color: grey;
+  color: white;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.hidden {
+  height: 0px;
+  overflow: hidden;
+}
+
+.hidden-btn {
   display: none;
 }
