@@ -125,7 +125,8 @@ function apiResponse(e) {
           textApiRes.innerText = `Fact: There's no fact related to the search parameters requested.`;
         }
         formBtn.classList.remove("hidden-btn");
-      });
+      })
+      .catch((err) => console.log(err));
   } else if (
     (category === "date") &
     (isFinite(min) & ((min >= 0) & (min <= 12)) & (min % 1 === 0) ||
@@ -149,7 +150,8 @@ function apiResponse(e) {
           textApiRes.innerText = `Fact: There's no fact related to the search parameters requested.`;
         }
         formBtn.classList.remove("hidden-btn");
-      });
+      })
+      .catch((err) => console.log(err));
   }
 }
 
