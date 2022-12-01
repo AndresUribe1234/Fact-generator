@@ -124,7 +124,6 @@ function apiResponse(e) {
         } else {
           textApiRes.innerText = `Fact: There's no fact related to the search parameters requested.`;
         }
-        formBtn.classList.remove("hidden-btn");
       })
       .catch((err) => console.log(err));
   } else if (
@@ -149,9 +148,18 @@ function apiResponse(e) {
         } else {
           textApiRes.innerText = `Fact: There's no fact related to the search parameters requested.`;
         }
-        formBtn.classList.remove("hidden-btn");
       })
       .catch((err) => console.log(err));
+  }
+  const containerParent = target.closest(".question-container");
+  const answerToExpand = containerParent.querySelector(".answer");
+  const icon = containerParent.querySelector(".expand-icon");
+  const formInfo = containerParent.querySelector(".fact-selection-text");
+  formBtn.classList.remove("hidden-btn");
+  if (answerToExpand.classList.contains("hidden")) {
+    answerToExpand.classList.remove("hidden");
+    icon.innerText = "-";
+    formInfo.style.fontSize = "1rem";
   }
 }
 
