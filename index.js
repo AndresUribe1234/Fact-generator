@@ -15,9 +15,3 @@ app.use(express.static("public"));
 
 // Routs
 app.use("/api", require("./routes/index"));
-
-app.get("/test", (req, res) => {
-  res
-    .status(200)
-    .json({ env1: process.env.API_BASE_URL, env2: process.env.API_KEY_NAME });
-});

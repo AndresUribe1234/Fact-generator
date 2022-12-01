@@ -55,26 +55,9 @@ router.get("/", async (req, res) => {
 
       res.status(200).json(data);
     }
-    // const apiRes = await needle(
-    //   "get",
-    //   `${API_BASE_URL}/trivia?min=42&max=42&fragment=true&json=true&category=math`,
-    //   options
-    // );
-    // const data = apiRes.body;
-    // console.log(data);
-    // res.json(data);
-    // res.json(
-    //   `${API_BASE_URL}/trivia?min=42&max=42&fragment=true&json=true&category=math`
-    // );
   } catch (error) {
     res.status(500).json({ error });
   }
 });
 
 module.exports = router;
-
-router.get("/test", (req, res) => {
-  res
-    .status(200)
-    .json({ env1: process.env.API_BASE_URL, env2: process.env.API_KEY_NAME });
-});
