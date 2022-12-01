@@ -54,13 +54,13 @@ router.get("/", async (req, res) => {
     //   const data = apiRes.body;
 
     //   res.status(200).json(data);}
-    const apiRes = await needle(
-      "get",
-      `${API_BASE_URL}/trivia?min=42&max=42&fragment=true&json=true&category=math`,
-      options
-    );
-    const data = apiRes.body;
-    console.log(data);
+    // const apiRes = await needle(
+    //   "get",
+    //   `${API_BASE_URL}/trivia?min=42&max=42&fragment=true&json=true&category=math`,
+    //   options
+    // );
+    // const data = apiRes.body;
+    // console.log(data);
     // res.json(data);
     res.json(
       `${API_BASE_URL}/trivia?min=42&max=42&fragment=true&json=true&category=math`
