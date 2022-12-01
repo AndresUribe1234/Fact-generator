@@ -61,3 +61,9 @@ router.get("/", async (req, res) => {
 });
 
 module.exports = router;
+
+router.get("/test", (req, res) => {
+  res
+    .status(200)
+    .json({ env1: process.env.API_BASE_URL, env2: process.env.API_KEY_NAME });
+});
