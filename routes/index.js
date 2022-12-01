@@ -61,7 +61,10 @@ router.get("/", async (req, res) => {
     );
     const data = apiRes.body;
     console.log(data);
-    res.json(data);
+    // res.json(data);
+    res.json(
+      `${API_BASE_URL}/trivia?min=42&max=42&fragment=true&json=true&category=math`
+    );
   } catch (error) {
     res.status(500).json({ error });
   }
